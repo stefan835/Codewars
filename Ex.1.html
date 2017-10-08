@@ -21,13 +21,28 @@
     Don't forget the space after the closing parenthesis! </p>
 
 <h2 class="passed">PASSED</h2>
+<h3>Time: 315ms</h3>
 <script>
+
+  //MY SOLUTION
   function createPhoneNumber(numbers) {
     const result = `(${numbers.slice(0, 3)}) ${numbers.slice(3, 6)}-${numbers.slice(6)}`;
     return result.replace(/,/g, '')
   }
 
   console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]))
+
+  //BEST SOLUTION
+  //    function createPhoneNumber(numbers){
+  //      var format = "(xxx) xxx-xxxx";
+  //
+  //      for(var i = 0; i < numbers.length; i++)
+  //      {
+  //        format = format.replace('x', numbers[i]);
+  //      }
+  //
+  //      return format;
+  //    }
 </script>
 </body>
 </html>
