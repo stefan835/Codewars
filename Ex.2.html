@@ -29,18 +29,43 @@
 
 <h2>My solution</h2>
 <div class="code">
-
+    <pre>function DNAStrand(dna) {<br/>  var nucleobases = dna.split('');<br/>  nucleobases = nucleobases.map(function (nucleobase) {<br/>    switch (nucleobase) {<br/>      case "A":<br/>        return "T";<br/>      case "T":<br/>        return "A";<br/>      case "C":<br/>        return "G";<br/>      case "G":<br/>        return "C";<br/>      default:<br/>        return<br/>    }<br/>  });<br/>  var result = nucleobases.toString().replace(/,/g, "");<br/>  return result<br/>}</pre>
 </div>
 <h2>Best solution</h2>
 <div class="code">
-
+    <pre>function DNAStrand(dna) {<br/>return dna.replace(/./g, function(c) {<br/>return DNAStrand.pairs[c]<br/>})<br/>}<br/><br/>DNAStrand.pairs = {<br/>A: 'T',<br/>T: 'A',<br/>C: 'G',<br/>G: 'C',<br/>}</pre>
 </div>
 
 <h2 class="passed">PASSED</h2>
-<h3>Time: </h3>
+<h3>Time: 350ms</h3>
 <script>
 
-  //    HERE GOES CODE
+  function DNAStrand(dna) {
+    var nucleobases = dna.split('');
+    nucleobases = nucleobases.map(function (nucleobase) {
+      switch (nucleobase) {
+        case "A":
+          return "T";
+        case "T":
+          return "A";
+        case "C":
+          return "G";
+        case "G":
+          return "C";
+        default:
+          return
+      }
+    });
+    var result = nucleobases.toString().replace(/,/g, "");
+    return result
+  }
+
+  console.log(DNAStrand("ATTGC"));
+  console.log(DNAStrand("GTAT"));
+  DNAStrand("ATTGC");
+  /*# return "TAACG"*/
+  DNAStrand("GTAT")
+  /* # return "CATA"*/
 
 </script>
 </body>

@@ -23,19 +23,11 @@
 
 <h2>My solution</h2>
 <div class="code">
-    <p>function createPhoneNumber(numbers) {<br/>
-        const result = `(${numbers.slice(0, 3)}) ${numbers.slice(3, 6)}-${numbers.slice(6)}`;<br/>
-        return result.replace(/,/g, '')<br/>}</p>
+    <pre>function createPhoneNumber(numbers) {<br/>  const result = `(${numbers.slice(0, 3)}) ${numbers.slice(3, 6)}-${numbers.slice(6)}`;<br/>  return result.replace(/,/g, '')<br/>}</pre>
 </div>
 <h2>Best solution</h2>
 <div class="code">
-    <p>function createPhoneNumber(numbers){<br/>
-        var format = "(xxx) xxx-xxxx";<br/><br/>
-        for(var i = 0; i &lt;numbers.length; i++)<br/>{<br/>
-        format = format.replace('x', numbers[i]);<br/>
-        }<br/>
-        return format;<br/>
-        }</p>
+    <pre>function createPhoneNumber(numbers){<br/>  var format = "(xxx) xxx-xxxx";<br/><br/>  for(var i = 0; i &lt; numbers.length; i++)<br/>  {<br/>    format = format.replace('x', numbers[i]);<br/>  }<br/>  return format;<br/>}</pre>
 </div>
 
 <h2 class="passed">PASSED</h2>
