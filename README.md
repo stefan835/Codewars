@@ -17,3 +17,8 @@ DNA ELEMENTS REPLACE
 ODD NUMBERS
 
 `odds([1,2,3,4,5]) #=> [1,3,5]`
+
+## Exercise 4
+SUM OF N ELEMENTS
+
+`Series: 1 + 1/4 + 1/7 + 1/10 + 1/13 + 1/16 +...`
