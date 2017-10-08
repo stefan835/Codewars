@@ -12,3 +12,8 @@ DNA ELEMENTS REPLACE
   return "TAACG"
   DNAStrand("GTAT")
   return "CATA"`
+
+## Exercise 3
+ODD NUMBERS
+
+`odds([1,2,3,4,5]) #=> [1,3,5]`

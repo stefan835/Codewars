@@ -39,7 +39,7 @@
 <h2 class="passed">PASSED</h2>
 <h3>Time: 350ms</h3>
 <script>
-
+  //MY SOLUTION
   function DNAStrand(dna) {
     var nucleobases = dna.split('');
     nucleobases = nucleobases.map(function (nucleobase) {
@@ -66,6 +66,20 @@
   /*# return "TAACG"*/
   DNAStrand("GTAT")
   /* # return "CATA"*/
+
+  //BEST SOLUTION
+  //    function DNAStrand(dna) {
+  //      return dna.replace(/./g, function(c) {
+  //        return DNAStrand.pairs[c]
+  //      })
+  //    }
+  //
+  //    DNAStrand.pairs = {
+  //      A: 'T',
+  //      T: 'A',
+  //      C: 'G',
+  //      G: 'C',
+  //    }
 
 </script>
 </body>
