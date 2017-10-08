@@ -1,0 +1,6 @@
+.passed {
+    color: green;
+}
+.not-passed {
+    color: red;
+}
