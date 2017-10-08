@@ -1,6 +1,29 @@
+body {
+    font-family: 'Fira Sans Extra Condensed', sans-serif;
+    background-color: #FDF3E7;
+    color: #3B3738;
+    text-align: center;
+}
+
+a, a:visited {
+    color: #C63D0F;
+}
+
+.code {
+    background-color: #3B3738;
+    color: white;
+    min-height: 120px;
+    font-size: 22px;
+    text-align: justify;
+    padding: 10px;
+    margin: 0 10%;
+    word-wrap: break-word;
+}
+
 .passed {
     color: green;
 }
+
 .not-passed {
     color: red;
 }

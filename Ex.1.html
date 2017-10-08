@@ -6,11 +6,12 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
 <h1>Ex.1</h1>
-<a href="Ex.2.html">Link to next!</a>
+<h3><a href="Ex.2.html">Link to next!</a></h3>
 <p>Write a function that accepts an array of 10 integers (between 0 and 9), that returns a string of those numbers in
     the form of a phone number.</p>
 
@@ -19,6 +20,23 @@
 
 <p>The returned format must be correct in order to complete this challenge.
     Don't forget the space after the closing parenthesis! </p>
+
+<h2>My solution</h2>
+<div class="code">
+    <p>function createPhoneNumber(numbers) {<br/>
+        const result = `(${numbers.slice(0, 3)}) ${numbers.slice(3, 6)}-${numbers.slice(6)}`;<br/>
+        return result.replace(/,/g, '')<br/>}</p>
+</div>
+<h2>Best solution</h2>
+<div class="code">
+    <p>function createPhoneNumber(numbers){<br/>
+        var format = "(xxx) xxx-xxxx";<br/><br/>
+        for(var i = 0; i &lt;numbers.length; i++)<br/>{<br/>
+        format = format.replace('x', numbers[i]);<br/>
+        }<br/>
+        return format;<br/>
+        }</p>
+</div>
 
 <h2 class="passed">PASSED</h2>
 <h3>Time: 315ms</h3>
@@ -32,17 +50,16 @@
 
   console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]))
 
-  //BEST SOLUTION
-  //    function createPhoneNumber(numbers){
-  //      var format = "(xxx) xxx-xxxx";
+  //  BEST SOLUTION
+  //      function createPhoneNumber(numbers){
+  //        var format = "(xxx) xxx-xxxx";
   //
-  //      for(var i = 0; i < numbers.length; i++)
-  //      {
-  //        format = format.replace('x', numbers[i]);
+  //        for(var i = 0; i < numbers.length; i++)
+  //        {
+  //          format = format.replace('x', numbers[i]);
+  //        }
+  //        return format;
   //      }
-  //
-  //      return format;
-  //    }
 </script>
 </body>
 </html>
