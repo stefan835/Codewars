@@ -13,23 +13,37 @@
 <h1>Ex.5</h1>
 <h3><a href="./Ex.4.html">Link to previos!</a></h3>
 <h3><a href="./Ex.6.html">Link to next!</a></h3>
+<p>Given an array of one's and zero's convert the equivalent binary value to an integer.
+</p>
+<p>Eg: [0, 0, 0, 1] is treated as 0001 which is the binary representation of 1</p>
+<h4>Examples:</h4>
 
-<p></p>
-<i></i>
+<pre><i>Testing: [0, 0, 0, 1] ==&gt; 1<br/>Testing: [0, 0, 1, 0] ==&gt; 2<br/>Testing: [0, 1, 0, 1] ==&gt; 5<br/>Testing: [1, 0, 0, 1] ==&gt; 9<br/>Testing: [0, 0, 1, 0] ==&gt; 2<br/>Testing: [0, 1, 1, 0] ==&gt; 6<br/>Testing: [1, 1, 1, 1] ==&gt; 15<br/>Testing: [1, 0, 1, 1] ==&gt; 11</i></pre>
 
 <h2>My solution</h2>
 <div class="code">
+    <pre>const binaryArrayToNumber = arr =&gt; {<br/>  return arr.reduce((prevEl, nextEl, index) =&gt; {<br/>    return nextEl !== 0 ? prevEl + Math.pow(2, arr.length - index - 1) : prevEl + nextEl<br/>  }, 0)<br/>};</pre>
 </div>
 <h2>Best solution</h2>
 <div class="code">
+    <pre>const binaryArrayToNumber = arr =&gt; parseInt(arr.join(''), 2);</pre>
 </div>
 
 <h2 class="passed">PASSED</h2>
-<h3>Time: </h3>
+<h3>Time: 472ms</h3>
 <script>
   //MY SOLUTION
 
+  const binaryArrayToNumber = arr => {
+    return arr.reduce((prevEl, nextEl, index) => {
+      return nextEl !== 0 ? prevEl + Math.pow(2, arr.length - index - 1) : prevEl + nextEl
+    }, 0)
+  };
+  console.log(binaryArrayToNumber([1, 0, 1, 1])) // ==> 11
+
   //BEST SOLUTION
+
+//  const binaryArrayToNumber = arr => parseInt(arr.join(''), 2);
 
 </script>
 </body>

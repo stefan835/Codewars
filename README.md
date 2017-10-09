@@ -8,10 +8,7 @@ PHONE NUMBER FORMAT
 ## Exercise 2
 DNA ELEMENTS REPLACE
 
-`DNAStrand("ATTGC");
-  return "TAACG"
-  DNAStrand("GTAT")
-  return "CATA"`
+`DNAStrand("ATTGC") return "TAACG"`
 
 ## Exercise 3
 ODD NUMBERS
@@ -21,4 +18,9 @@ ODD NUMBERS
 ## Exercise 4
 SUM OF N ELEMENTS
 
-`Series: 1 + 1/4 + 1/7 + 1/10 + 1/13 + 1/16 +...`
+`SeriesSum(5) => 1 + 1/4 + 1/7 + 1/10 + 1/13 = "1.57"`
+
+## Exercise 5
+BINARY NUMBERS READ
+
+`binaryArrayToNumber([1, 0, 1, 1]) // ==> 11`
