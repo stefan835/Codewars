@@ -15,22 +15,96 @@
 <h3><a href="./Ex.6.html">Link to previos!</a></h3>
 <h3><a href="./Ex.8.html">Link to next!</a></h3>
 
-<p></p>
-<i></i>
+<p>There is a queue for the self-checkout tills at the supermarket. Your task is write a function to calculate the total
+    time required for all the customers to check out!</p>
+<hr/>
+<p>The function has two input variables:</p>
+<ul>
+    <li>customers: an array (list in python) of positive integers representing the queue. Each integer represents a
+        customer, and its value is the amount of time they require to check out.
+    </li>
+    <li>n: a positive integer, the number of checkout tills.</li>
+</ul>
+<p>The function should return an integer, the total time required.</p>
+<hr/>
+<p>EDIT: A lot of people have been confused in the comments. To try to prevent any more confusion:</p>
+<ul>
+    <li>There is only ONE queue, and</li>
+    <li>The order of the queue NEVER changes, and</li>
+    <li>Assume that the front person in the queue (i.e. the first element in the array/list) proceeds to a till as soon
+        as it becomes free.
+    </li>
+    <li>The diagram on the wiki page I linked to at the bottom of the description may be useful.</li>
+</ul>
+<p>So, for example:</p>
+<pre><code class="lang-javascript">queueTime([<span class="hljs-number">5</span>,<span
+        class="hljs-number">3</span>,<span class="hljs-number">4</span>], <span class="hljs-number">1</span>)
+<span class="hljs-comment">// should return 12</span>
+<span class="hljs-comment">// because when n=1, the total time is just the sum of the times</span>
+
+queueTime([<span class="hljs-number">10</span>,<span class="hljs-number">2</span>,<span
+            class="hljs-number">3</span>,<span class="hljs-number">3</span>], <span class="hljs-number">2</span>)
+<span class="hljs-comment">// should return 10</span>
+<span class="hljs-comment">// because here n=2 and the 2nd, 3rd, and 4th people in the </span>
+<span class="hljs-comment">// queue finish before the 1st person has finished.</span>
+
+queueTime([<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span
+            class="hljs-number">10</span>], <span class="hljs-number">2</span>)
+<span class="hljs-comment">// should return 12</span>
+</code></pre>
+<p>N.B. You should assume that all the test input will be valid, as specified above.</p>
+<p>P.S. The situation in this kata can be likened to the more-computer-science-related idea of a thread pool, with
+    relation to running multiple processes at the same time:&nbsp;<a href="https://en.wikipedia.org/wiki/Thread_pool"
+                                                                     target="_blank">https://en.wikipedia.org/wiki/Thread_pool</a>
+</p>
 
 <h2>My solution</h2>
 <div class="code">
+    <pre>function queueTime(customers, n) {<br/>  let queues = [];<br/>  for (let i = 0; i &lt; n; i++) {<br/>    queues.push(customers[i] || 0)<br/>  }<br/>  for (n; n &lt; customers.length; n++) {<br/>    let lowestNumber = queues.reduce((prevQueue, nextQueue) =&gt; {<br/>      return Math.min(prevQueue, nextQueue)<br/>    });<br/>    let indexOfLowest = queues.indexOf(lowestNumber);<br/>    queues[indexOfLowest] += customers[n]<br/>  }<br/>  return queues.reduce((prevQueue, nextQueue) =&gt; {<br/>    return Math.max(prevQueue, nextQueue)<br/>}) || 0<br/>}</pre>
 </div>
 <h2>Best solution</h2>
 <div class="code">
+    <pre>function queueTime(customers, n) {<br/>  var w = new Array(n).fill(0);<br/>  for (let t of customers) {<br/>    let idx = w.indexOf(Math.min(...w));<br/>    w[idx] += t;<br/>  }<br/>  return Math.max(...w);<br/>}</pre>
 </div>
 
 <h2 class="passed">PASSED</h2>
-<h3>Time: </h3>
+<h3>Time: 539ms</h3>
 <script>
   //MY SOLUTION
 
+  function queueTime(customers, n) {
+    let queues = [];
+    for (let i = 0; i < n; i++) {
+      queues.push(customers[i] || 0)
+    }
+    for (n; n < customers.length; n++) {
+      let lowestNumber = queues.reduce((prevQueue, nextQueue) => {
+        return Math.min(prevQueue, nextQueue)
+      });
+      let indexOfLowest = queues.indexOf(lowestNumber);
+      queues[indexOfLowest] += customers[n]
+    }
+    return queues.reduce((prevQueue, nextQueue) => {
+      return Math.max(prevQueue, nextQueue)
+    }) || 0
+  }
+
+  console.log(queueTime([10, 2, 3, 3], 2))
+  console.log(queueTime([2, 3, 10], 2))
+  console.log(queueTime([], 1));
+  console.log(queueTime([1, 2, 3, 4], 1));
+  console.log(queueTime([2, 2, 3, 3, 4, 4], 2));
+  console.log(queueTime([1, 2, 3, 4, 5], 100));
   //BEST SOLUTION
+
+  //  function queueTime(customers, n) {
+  //    var w = new Array(n).fill(0);
+  //    for (let t of customers) {
+  //      let idx = w.indexOf(Math.min(...w));
+  //      w[idx] += t;
+  //    }
+  //    return Math.max(...w);
+  //  }
 
 </script>
 </body>
