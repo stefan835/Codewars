@@ -24,3 +24,9 @@ SUM OF N ELEMENTS
 BINARY NUMBERS READ
 
 `binaryArrayToNumber([1, 0, 1, 1]) // ==> 11`
+
+## Exercise6
+REVERSE WORDS
+
+`reverseWords("The greatest victory is that which requires no battle")
+ // should return "battle no requires which that is victory greatest The"`
