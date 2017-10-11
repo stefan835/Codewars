@@ -15,22 +15,49 @@
 <h3><a href="./Ex.7.html">Link to previos!</a></h3>
 <h3><a href="./Ex.9.html">Link to next!</a></h3>
 
-<p></p>
-<i></i>
+<p>Write a function, persistence, that takes in a positive parameter num and returns its multiplicative persistence,
+    which is the number of times you must multiply the digits in num until you reach a single digit.</p>
+<h4> For example:</h4>
+
+<pre><i>persistence(39) === 3 // because 3*9 = 27, 2*7 = 14, 1*4=4<br/>// and 4 has only one digit<br/><br/>persistence(999) === 4 // because 9*9*9 = 729, 7*2*9 = 126,<br/>// 1*2*6 = 12, and finally 1*2 = 2<br/><br/>persistence(4) === 0 // because 4 is already a one-digit number</i></pre>
+
 
 <h2>My solution</h2>
 <div class="code">
+    <pre>function persistence(num) {<br/>  let numberOfRuns = 0;<br/>  for (let currentNumber = num; currentNumber &gt;= 10;) {<br/>    numberOfRuns += 1;<br/>    let numArr = currentNumber.toString().split('');<br/>    currentNumber = numArr.reduce((prevNum, nextNum) =&gt; {<br/>      return parseInt(prevNum) * parseInt(nextNum)<br/>    })<br/>  }<br/>  return numberOfRuns<br/>}</pre>
 </div>
 <h2>Best solution</h2>
 <div class="code">
+    <pre><br/>const persistence = num =&gt; {<br/>  return `${num}`.length &gt; 1<br/>    ? 1 + persistence(`${num}`.split('').reduce((a, b) =&gt; a * +b))<br/>    : 0;<br/>}</pre>
 </div>
 
 <h2 class="passed">PASSED</h2>
-<h3>Time: </h3>
+<h3>Time: 501ms</h3>
 <script>
   //MY SOLUTION
 
+  function persistence(num) {
+    let numberOfRuns = 0;
+    for (let currentNumber = num; currentNumber >= 10;) {
+      numberOfRuns += 1;
+      let numArr = currentNumber.toString().split('');
+      currentNumber = numArr.reduce((prevNum, nextNum) => {
+        return parseInt(prevNum) * parseInt(nextNum)
+      })
+    }
+    return numberOfRuns
+  }
+
+  console.log(persistence(999)) //=== 4 // because 9*9*9 = 729, 7*2*9 = 126,
+  // 1*2*6 = 12, and finally 1*2 = 2
+
   //BEST SOLUTION
+  //
+  //  const persistence = num => {
+  //    return `${num}`.length > 1
+  //      ? 1 + persistence(`${num}`.split('').reduce((a, b) => a * +b))
+  //      : 0;
+  //  }
 
 </script>
 </body>

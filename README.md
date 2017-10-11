@@ -31,10 +31,16 @@ REVERSE WORDS
 `reverseWords("The greatest victory is that which requires no battle")
  // should return "battle no requires which that is victory greatest The"`
 
- ## Exercise6
+ ## Exercise7
 THREAD  POOL
 
 `queueTime([10,2,3,3], 2)
  // should return 10
  // because here n=2 and the 2nd, 3rd, and 4th people in the
  // queue finish before the 1st person has finished.`
+
+  ## Exercise8
+ PERSISTENCE OF A NUMBER
+
+`persistence(999) === 4 // because 9*9*9 = 729, 7*2*9 = 126,
+ // 1*2*6 = 12, and finally 1*2 = 2`
