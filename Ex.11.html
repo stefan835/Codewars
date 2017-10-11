@@ -15,20 +15,57 @@
 <h3><a href="./Ex.10.html">Link to previos!</a></h3>
 <h3><a href="./Ex.12.html">Link to next!</a></h3>
 
+<p>#Find the missing letter</p>
+<p>Write a method that takes an array of consecutive (increasing) letters as input and that returns the missing letter
+    in the array.</p>
+<p>You will always get an valid array. And it will be always exactly one letter be missing. The length of the array will
+    always be at least 2.<br/>The array will always contain letters in only one case.</p>
+<p>Example:</p>
+<pre><code>['a','b','c','d','f'] -&gt; 'e'
+['O','Q','R','S'] -&gt; 'P'
+</code></pre>
+<p>(Use the English alphabet with 26 letters!)</p>
+<p>Have fun coding it and please don't forget to vote and rank this kata! :-)</p>
+<p>I have also created other katas. Take a look if you enjoyed this kata!</p>
 
 <h2>My solution</h2>
 <div class="code">
+    <pre>function findMissingLetter(array) {<br/>  const alphabet = "abcdefghijklmnopqrstuvwxyz";<br/>  const arrExtremeChars = alphabet.slice(alphabet.indexOf(array[0].toLowerCase()), alphabet.indexOf(array[array.length - 1].toLowerCase()));<br/>  const comparedArr = array[0] === array[0].toLowerCase() ? arrExtremeChars.split('') : arrExtremeChars.toUpperCase('').split('');<br/>  return comparedArr.filter((char, index) =&gt; {<br/>    return char !== array[index]<br/>  }).toString()[0]<br/>}</pre>
 </div>
 <h2>Best solution</h2>
 <div class="code">
+    <pre>function findMissingLetter(array) {<br/>  let first = array[0].charCodeAt(0)<br/>  for (let i = 1; i &lt; array.length; i++) {<br/>    if (first + i !== array[i].charCodeAt(0)) {<br/>      return String.fromCharCode(first + i)<br/>    }<br/>  }<br/>  throw new Error("Invalid input")<br/>}</pre>
 </div>
 
 <h2 class="passed">PASSED</h2>
-<h3>Time: </h3>
+<h3>Time: 347ms</h3>
 <script>
   //MY SOLUTION
 
+  function findMissingLetter(array) {
+    const alphabet = "abcdefghijklmnopqrstuvwxyz";
+    const arrExtremeChars = alphabet.slice(alphabet.indexOf(array[0].toLowerCase()), alphabet.indexOf(array[array.length - 1].toLowerCase()));
+    const comparedArr = array[0] === array[0].toLowerCase() ? arrExtremeChars.split('') : arrExtremeChars.toUpperCase('').split('');
+    return comparedArr.filter((char, index) => {
+      return char !== array[index]
+    }).toString()[0]
+  }
+
+
+  console.log(findMissingLetter(['a', 'b', 'c', 'd', 'f']));
+  console.log(findMissingLetter(['O', 'Q', 'R', 'S']))
+
   //BEST SOLUTION
+
+  //  function findMissingLetter(array) {
+  //    let first = array[0].charCodeAt(0)
+  //    for (let i = 1; i < array.length; i++) {
+  //      if (first + i !== array[i].charCodeAt(0)) {
+  //        return String.fromCharCode(first + i)
+  //      }
+  //    }
+  //    throw new Error("Invalid input")
+  //  }
 
 </script>
 </body>
