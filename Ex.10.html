@@ -15,22 +15,83 @@
 <h3><a href="./Ex.9.html">Link to previos!</a></h3>
 <h3><a href="./Ex.11.html">Link to next!</a></h3>
 
-<p></p>
-<i></i>
+<p>Pete likes to bake some cakes. He has some recipes and ingredients. Unfortunately he is not good in maths. Can you
+    help him to find out, how many cakes he could bake considering his recipes?</p>
+<p>Write a function&nbsp;<code>cakes()</code>, which takes the recipe (object) and the available ingredients (also an
+    object) and returns the maximum number of cakes Pete can bake (integer). For simplicity there are no units for the
+    amounts (e.g. 1 lb of flour or 200 g of sugar are simply 1 or 200). Ingredients that are not present in the objects,
+    can be considered as 0.</p>
+<p>Examples:</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// must return 2</span>
+cakes({flour: <span class="hljs-number">500</span>, sugar: <span class="hljs-number">200</span>, eggs: <span
+            class="hljs-number">1</span>}, {flour: <span class="hljs-number">1200</span>, sugar: <span
+            class="hljs-number">1200</span>, eggs: <span class="hljs-number">5</span>, milk: <span class="hljs-number">200</span>});
+<span class="hljs-comment">// must return 0</span>
+cakes({apples: <span class="hljs-number">3</span>, flour: <span class="hljs-number">300</span>, sugar: <span
+            class="hljs-number">150</span>, milk: <span class="hljs-number">100</span>, oil: <span class="hljs-number">100</span>}, {sugar: <span
+            class="hljs-number">500</span>, flour: <span class="hljs-number">2000</span>, milk: <span
+            class="hljs-number">2000</span>}</code></pre>
 
 <h2>My solution</h2>
 <div class="code">
+    <pre>function cakes(recipe, available) {<br/>  let recipeArr = [];<br/>  let availableArr = [];<br/>  for (key in recipe) {<br/>    recipeArr.push(key)<br/>  }<br/>  for (key in available) {<br/>    availableArr.push(key)<br/>  }<br/>  const haveAllIngredients = recipeArr.map((ingredient) =&gt; {<br/>    return availableArr.includes(ingredient)<br/>  }).reduce((val, nextVal) =&gt; {<br/>    return val &amp;&amp; nextVal<br/>  });<br/>  const checkHowMany = () =&gt; {<br/>    return recipeArr.map(ingredient =&gt; {<br/>      return recipe[ingredient] !== 0 ? parseInt(available[ingredient] / recipe[ingredient]) : 0<br/>    }).reduce((ingr, nextIngr) =&gt; {<br/>      return ingr &lt; nextIngr ? ingr : nextIngr<br/>    })<br/>  };<br/>  return haveAllIngredients ? checkHowMany() : 0<br/>}</pre>
 </div>
 <h2>Best solution</h2>
 <div class="code">
+    <pre>function cakes(recipe, available) {<br/>return Object.keys(recipe).reduce(function(val, ingredient) {<br/>return Math.min(Math.floor(available[ingredient] / recipe[ingredient] || 0), val)<br/>}, Infinity)<br/>}</pre>
 </div>
 
 <h2 class="passed">PASSED</h2>
-<h3>Time: </h3>
+<h3>Time: Time: 309ms </h3>
 <script>
   //MY SOLUTION
 
+  function cakes(recipe, available) {
+    let recipeArr = [];
+    let availableArr = [];
+    for (key in recipe) {
+      recipeArr.push(key)
+    }
+    for (key in available) {
+      availableArr.push(key)
+    }
+    const haveAllIngredients = recipeArr.map((ingredient) => {
+      return availableArr.includes(ingredient)
+    }).reduce((val, nextVal) => {
+      return val && nextVal
+    });
+    const checkHowMany = () => {
+      return recipeArr.map(ingredient => {
+        return recipe[ingredient] !== 0 ? parseInt(available[ingredient] / recipe[ingredient]) : 0
+      }).reduce((ingr, nextIngr) => {
+        return ingr < nextIngr ? ingr : nextIngr
+      })
+    };
+    return haveAllIngredients ? checkHowMany() : 0
+  }
+
+  console.log(cakes({pears: 67, crumbles: 0, flour: 95}, {
+    nuts: 9900,
+    eggs: 6600,
+    butter: 3700,
+    crumbles: 8900,
+    flour: 6800,
+    cocoa: 7300,
+    sugar: 1400,
+    pears: 300,
+    milk: 5900,
+    apples: 1200,
+    chocolate: 4100,
+    cream: 8900,
+    oil: 1300
+  }))
   //BEST SOLUTION
+
+  function cakes(recipe, available) {
+    return Object.keys(recipe).reduce(function (val, ingredient) {
+      return Math.min(Math.floor(available[ingredient] / recipe[ingredient] || 0), val)
+    }, Infinity)
+  }
 
 </script>
 </body>

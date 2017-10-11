@@ -25,13 +25,13 @@ BINARY NUMBERS READ
 
 `binaryArrayToNumber([1, 0, 1, 1]) // ==> 11`
 
-## Exercise6
+## Exercise 6
 REVERSE WORDS
 
 `reverseWords("The greatest victory is that which requires no battle")
  // should return "battle no requires which that is victory greatest The"`
 
- ## Exercise7
+ ## Exercise 7
 THREAD  POOL
 
 `queueTime([10,2,3,3], 2)
@@ -39,13 +39,19 @@ THREAD  POOL
  // because here n=2 and the 2nd, 3rd, and 4th people in the
  // queue finish before the 1st person has finished.`
 
-  ## Exercise8
+  ## Exercise 8
  PERSISTENCE OF A NUMBER
 
 `persistence(999) === 4 // because 9*9*9 = 729, 7*2*9 = 126,
  // 1*2*6 = 12, and finally 1*2 = 2`
 
-  ## Exercise9
+  ## Exercise 9
  DISPLAYING TIME
 
 `Write a function, which takes a non-negative integer (seconds) as input and returns the time in a human-readable format (HH:MM:SS)`
+
+## Exercise 10
+ COMPARING OBJECTS
+
+`Write a function cakes(), which takes the recipe (object) and the available ingredients (also an object) and returns the maximum number of cakes Pete can bake (integer). For simplicity there are no units for the amounts (e.g. 1 lb of flour or 200 g of sugar are simply 1 or 200). Ingredients that are not present in the objects, can be considered as 0.
+ Examples: // must return 2 cakes({flour: 500, sugar: 200, eggs: 1}, {flour: 1200, sugar: 1200, eggs: 5, milk: 200});`
