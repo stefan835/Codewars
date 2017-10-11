@@ -15,20 +15,45 @@
 <h3><a href="./Ex.11.html">Link to previos!</a></h3>
 <h3><a href="./Ex.13.html">Link to next!</a></h3>
 
+<p>Write function bmi that calculates body mass index (bmi = weight / height ^ 2).</p>
+<p>if bmi &lt;= 18.5 return "Underweight"</p>
+<p>if bmi &lt;= 25.0 return "Normal"</p>
+<p>if bmi &lt;= 30.0 return "Overweight"</p>
+<p>if bmi &gt; 30 return "Obese"</p>
 
 <h2>My solution</h2>
 <div class="code">
+    <pre>function bmi(weight, height) {<br/>  const bmi = weight / Math.pow(height, 2);<br/>  if (bmi &lt;= 18.5) {<br/>    return "Underweight";<br/>  } else if (bmi &lt;= 25) {<br/>    return "Normal";<br/>  } else if (bmi &lt;= 30) {<br/>    return "Overweight";<br/>  } else {<br/>    return "Obese";<br/>  }<br/>}</pre>
 </div>
 <h2>Best solution</h2>
 <div class="code">
+    <pre>const bmi = (w, h, bmi = w/h/h) =&gt;  bmi &lt;= 18.5 ? "Underweight" :<br/>bmi &lt;= 25 ? "Normal" :<br/>bmi &lt;= 30 ? "Overweight" : "Obese";</pre>
 </div>
 
 <h2 class="passed">PASSED</h2>
-<h3>Time: </h3>
+<h3>Time: 310ms</h3>
 <script>
   //MY SOLUTION
 
+  function bmi(weight, height) {
+    const bmi = weight / Math.pow(height, 2);
+    if (bmi <= 18.5) {
+      return "Underweight";
+    } else if (bmi <= 25) {
+      return "Normal";
+    } else if (bmi <= 30) {
+      return "Overweight";
+    } else {
+      return "Obese";
+    }
+  }
+
+  console.log(bmi(80, 1.80))
   //BEST SOLUTION
+
+//  const bmi = (w, h, bmi = w/h/h) =>  bmi <= 18.5 ? "Underweight" :
+  //    bmi <= 25 ? "Normal" :
+  //      bmi <= 30 ? "Overweight" : "Obese";
 
 </script>
 </body>
