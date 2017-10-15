@@ -64,3 +64,8 @@ THREAD  POOL
  CALCULATING BMI
 
 `Write function bmi that calculates body mass index (bmi = weight / height ^ 2). `
+
+## Exercise 13
+ OPPOSITE NUMBER
+
+`Very simple, given a number, find its opposite.`
