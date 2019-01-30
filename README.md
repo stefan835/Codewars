@@ -1,1 +1,1 @@
-<img src="https://www.codewars.com/users/stefan835/badges/large" alt="badge"/>
+<img src="https://www.codewars.com/users/stefanowiczp/badges/large" alt="badge"/>
